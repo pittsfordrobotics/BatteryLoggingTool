@@ -6,6 +6,7 @@ import os
 
 class UIHandler:
     def __init__(self):
+        pg.init()
         # ui construction (create buttons, labels, etc.)
         self.surface = display.set_mode(size=(uic.WINDOW_WIDTH, uic.WINDOW_HEIGHT))
         display.set_caption("BatteryLoggerTool v0.0.1")
@@ -37,3 +38,10 @@ class UIHandler:
         """
         if self.handle_click(0):
             print("Button 1 clicked")
+
+    def mainloop(self):
+        self.do_stuff()
+        pg.display.flip()
+        if pg.event.get(pg.QUIT):
+            pg.quit()
+            exit()
