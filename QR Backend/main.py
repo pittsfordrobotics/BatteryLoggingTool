@@ -3,9 +3,9 @@ import UIHandler
 
 if __name__ == "__main__":
     pg.init()
-    surface = UIHandler.init()
+    handler = UIHandler.UIHandler()
     while True:
-        UIHandler.do_stuff(surface)
+        handler.do_stuff()
         pg.display.flip()
         for event in pg.event.get():
             if event.type == pg.QUIT:
