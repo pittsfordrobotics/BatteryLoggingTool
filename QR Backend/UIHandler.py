@@ -25,6 +25,7 @@ class UIHandler:
             pg.draw.rect(self.surface, uic.BTN_COLOR, btn, border_radius=50)
         self.clicked = {0: False}
         self.batteries_db = BatteryDB.BatteryDB()
+        self.batteries_db.add_battery(BatteryDB.Battery(1, 1, 1, 1))
         print(self.batteries_db.batteries)
 
     def get_surface(self) -> pg.Surface:
