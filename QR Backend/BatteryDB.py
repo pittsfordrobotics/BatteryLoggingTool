@@ -27,8 +27,9 @@ class BatteryData:
         self.battery_id = battery.get_id()
 
 class BatteryDB:
-    def __init__(self):
-        conn = sqlite3.Connection("batteries.db")
+    def __init__(self, db_file="batteries.db"):
+        self.db_file = db_file
+        conn = sqlite3.Connection(self.db_file)
         cursor = conn.cursor()
         cursor.execute("CREATE TABLE IF NOT EXISTS batteries (id INTEGER PRIMARY KEY, name STRING, percentage INTEGER NOT NULL, num_cycles INTEGER NOT NULL)")
         cursor.execute("CREATE TABLE IF NOT EXISTS batteries_data (data_id INTEGER PRIMARY KEY, battery_id INTEGER NOT NULL, cycle_num INTEGER NOT NULL, is_charged BOOLEAN NOT NULL, percentage INTEGER NOT NULL, voltage FLOAT NOT NULL, load_voltage FLOAT NOT NULL)")
